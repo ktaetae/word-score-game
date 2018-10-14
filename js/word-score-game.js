@@ -149,8 +149,71 @@ function getAvailableLetter(){
 
 
 function findWordToUse(){
- //TODO Your job starts here.
-	alert("Your code needs to go here");	
+//I'm sorry that I'm not familiar with js, so I write the code in Python.
+def findWordToUse():
+	codeFoundWord = ''
+	WordPoints = 0
+	
+	word = []
+	word_point = []
+	word1 =[]
+	word_point1 =[]
+	lst =[]
+	
+	for i in range(len(YOUR_HAND)):		
+			len_word = len(word1)
+			if !len_word:
+				for j in range(len(YOUR_HAND)):
+					w = YOUR_HAND[j].letter
+					wp = YOUR_HAND[j].pointsWhenLettersUsed
+					word1.append(w)
+					word_point1.append(wp)
+					lst1 = []
+					lst1.append(j)
+					lst.append(lst1)
+			else:
+				for j in range(len_word):
+					YOUR_HAND_co = YOUR_HAND[:]
+					for x in range(len(lst[j])):
+						index = lst[j][x]
+						YOUR_HAND_co.pop(index)
+					for y in range(len(YOUR_HAND_co)):
+						wa = word1[j]+YOUR_HAND_co[y].letter
+						wa_point= word_point1[j]+YOUR_HAND_co[y].pointsWhenLettersUsed
+						word1.append(wa)
+						word_point1.append(wa_point)
+						lst1 = lst[j][:]
+						lst1.append(y)
+						lst.append(lst1)
+
+			word1=word1[len_word:]
+			word_point1=word_point1[len_word:]
+			lst=lst[len_word:]
+		Wordi = word1[:]
+		w_point = word_point1[:]
+		word.append(Wordi);
+		word_point.append(w_point);
+
+	for i in range(len(word)):
+		for j in range( len( word[i])):
+			codei = word[i][j]
+			w_point = word_point[i][j]
+			if isThisAWord(codei):
+				if w_point > WordPoints:
+					code = codei
+					WordPoints = w_point
+				elif w_point == WordPoints:
+					if len(codei)< len(code):
+						code = codei
+						WordPoints = w_point
+
+	
+	if WordPoints:
+		if haveLettersForWord(code):
+			 successfullyAddedWord(code)
+		else:
+		print ("No word could be found. Please retire your hand.")
+
 }
 function humanFindWordToUse(){
 	
